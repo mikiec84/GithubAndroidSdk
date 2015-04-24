@@ -21,6 +21,15 @@ public interface NotificationsService {
 	
 	@GET("/notifications")
 	void getNotifications(Callback<List<Notification>> notifications);
+
+	@GET("/notifications")
+	List<Notification> getNotifications();
+
+	@GET("/notifications")
+	void getNotifications(@Query("since") String since, Callback<List<Notification>> notifications);
+
+	@GET("/notifications")
+	List<Notification> getNotifications(@Query("since") String since);
 	
 	@PUT("/repos/{owner}/{repo}/notifications")
 	void markAsReadRepo(@Path("owner") String owner, @Path("repo") String repo, @Body LastDate body, Callback<Response> responseCallback);
